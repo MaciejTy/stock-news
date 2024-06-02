@@ -6,8 +6,8 @@ NEWS_ENDPOINT = "https://www.newsapi.org/v2/everything"
 
 STOCK_API_KEY = "RF6ZTTDL8R808IK8"
 NEWS_API_KEY = "abd3106c3ec1406fb3f0384864f52380"
-TWILIO_SID = 'ACf4172a691196db90fce9d5d9fc66c059'
-TWILIO_AUTH_TOKEN = "5517bab2d16c2de390692d5e9bb6d901"
+TWILIO_SID = 'TWILIO_SID'
+TWILIO_AUTH_TOKEN = "TWILIO_AUTH_TOKEN"
 import requests
 from twilio.rest import Client
 ## STEP 1: Use https://www.alphavantage.co
