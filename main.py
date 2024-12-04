@@ -10,8 +10,7 @@ TWILIO_SID = 'TWILIO_SID'
 TWILIO_AUTH_TOKEN = "TWILIO_AUTH_TOKEN"
 import requests
 from twilio.rest import Client
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+
 stock_params = {
     "function": "TIME_SERIES_DAILY",
     "apikey": STOCK_API_KEY,
@@ -28,8 +27,6 @@ day_before_yesterday_closing_price = day_before_yesterday["4. close"]
 
 difference = abs(float(yesterday_closing_price) - float(day_before_yesterday_closing_price))
 diff_percent = (difference / float(yesterday_closing_price)) * 100
-## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
 if diff_percent > 0:
     news_params = {
         "apiKey": NEWS_API_KEY,
@@ -42,7 +39,7 @@ if diff_percent > 0:
     formatted_articles = [f"Headline: {article['title']}. \nBrief: {article['description']}" for article in three_articles]
 
 
-## STEP 3: Use https://www.twilio.com
+
 # Send a seperate message with the percentage change and each article's title and description to your phone number.
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
     for article in formatted_articles:
@@ -63,7 +60,7 @@ if diff_percent > 0:
             )
             print(message.sid)
 
-#Optional: Format the SMS message like this:
+#Example of the SMS message:
 """
 TSLA: 🔺2%
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
